@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SUDHAKAR PAINTING CONTRACTOR</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f5f3;
+  color: #183b30;
+}
+header {
+  background: #174b39;
+  color: white;
+  text-align: center;
+  padding: 28px 12px;
+}
+header h1 { font-size: 25px; }
+main {
+  max-width: 440px;
+  margin: 30px auto;
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+}
+label { display: block; margin: 16px 0 7px; }
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 1px solid #bdcbc3;
+  border-radius: 6px;
+  font: inherit;
+}
+button, .contact {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  margin-top: 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #174b39;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+.whatsapp { background: #168746; }
+#result {
+  display: none;
+  margin-top: 25px;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+.note { font-size: 13px; color: #58665f; }
+footer { text-align: center; padding: 20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>SUDHAKAR PAINTING CONTRACTOR</h1>
+  <p>Quality Painting • Trusted Service</p>
+</header>
+
+<main>
+  <h2>Customer Registration</h2>
+  <p>Enter your details to get in touch with us.</p>
+
+  <form id="registerForm">
+    <label for="name">Full Name</label>
+    <input id="name" required placeholder="Your name">
+
+    <label for="phone">Your Phone Number</label>
+    <input id="phone" type="tel" required placeholder="Your phone number">
+
+    <label for="address">Your Address</label>
+    <textarea id="address" rows="3" required placeholder="Your address"></textarea>
+
+    <button type="submit">Register Now</button>
+  </form>
+
+  <section id="result">
+    <h2>Registration Complete!</h2>
+    <p id="greeting"></p>
+    <p>Contact Sudhakar Painting Contractor:</p>
+    <a class="contact" id="call" href="#">Call Contractor</a>
+    <a class="contact whatsapp" id="message" href="#" target="_blank" rel="noopener">Message on WhatsApp</a>
+  </section>
+
+  <p class="note">Demo: your details are not saved or sent to the contractor.</p>
+</main>
+
+<footer>© 2026 Sudhakar Painting Contractor</footer>
+
+<script>
+// Replace with the contractor's real number, including 91.
+// Example format: 919876543210
+const contractorNumber = "91XXXXXXXXXX";
+
+document.getElementById("registerForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  if (!/^91[0-9]{10}$/.test(contractorNumber)) {
+    alert("The website owner must add the contractor's real phone number first.");
+    return;
+  }
+
+  const name = document.getElementById("name").value.trim();
+  document.getElementById("greeting").textContent =
+    "Thank you, " + name + "! You can now contact the contractor.";
+
+  document.getElementById("call").href = "tel:+" + contractorNumber;
+  document.getElementById("message").href = "https://wa.me/" + contractorNumber;
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").scrollIntoView({behavior: "smooth"});
+});
+</script>
+</body>
+</html>
